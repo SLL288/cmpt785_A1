@@ -1,0 +1,13 @@
+make sure python is installed
+
+Step 1. create a virtual environment
+    py -3 -m venv .venv
+
+Step 2. active the venv (deactivate)
+    .venv\Scripts\activate
+    deactivate (for deactivate)
+
+Step 3. install libraries (within the venv)
+    pip install -r requirements.txt
+
+
