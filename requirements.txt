@@ -4,3 +4,4 @@ Flask-SQLAlchemy
 Flask-Security-Too
 setuptools
 cryptography
+wtforms
