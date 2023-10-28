@@ -1,7 +1,9 @@
 Werkzeug==2.3.0
 flask==2.3.1
 Flask-SQLAlchemy
-Flask-Security-Too
+Flask-Login
 setuptools
 cryptography
 wtforms
+bcrypt
+flask_wtf
