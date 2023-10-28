@@ -56,11 +56,11 @@ def apply_security_headers(response):
     response.headers["Content-Security-Policy"] = "default-src 'self'"  # restricts the sources from which content can be loaded
     return response
 
-# csrf_token generation
-@app.route('/csrf_token', methods=['GET'])
-def csrf_token():
-    token = generate_csrf()
-    return jsonify(csrf_token=token)
+# # csrf_token generation
+# @app.route('/csrf_token', methods=['GET'])
+# def csrf_token():
+#     token = generate_csrf()
+#     return jsonify(csrf_token=token)
 
 @app.route('/register', methods=['POST'])
 def register():
