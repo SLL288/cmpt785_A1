@@ -10,4 +10,5 @@ Step 2. active the venv (deactivate)
 Step 3. install libraries (within the venv)
     pip install -r requirements.txt
 
-
+Step 4. run
+    python app.py
