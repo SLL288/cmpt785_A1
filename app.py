@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 import uuid
@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SESSION_COOKIE_SECURE'] = True
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-app.config['PERMANENT_SESSION_LIFETIME'] = 600  # timeout after 10 min
+app.config['PERMANENT_SESSION_LIFETIME'] = 600  # 10 min
 db = SQLAlchemy(app)
 logging.basicConfig(filename='app.log', level=logging.INFO)  # logs
 
@@ -92,6 +92,8 @@ def login():
             login_user(user)
             logging.info(f'User logged in: {username}')
             return '', 200
+        # Clear the session if the login attempt fails
+        session.clear()
         logging.warning(f'Invalid login attempt: {username}')
         return jsonify(error='Invalid credentials'), 401
     return jsonify(error=form.errors), 400
