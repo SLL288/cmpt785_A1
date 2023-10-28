@@ -151,7 +151,7 @@ if __name__ == '__main__':
             role_user = Role(name='user')
             db.session.add(role_user)
         if not User.query.filter_by(username='admin').first():
-            user_admin = User(username='admin', password=generate_password_hash('admin123'), active=True, roles=[role_admin])
+            user_admin = User(username='admin', password=generate_password_hash('admin'), active=True, roles=[role_admin])
             db.session.add(user_admin)
             db.session.commit()
     app.run(ssl_context='adhoc')
